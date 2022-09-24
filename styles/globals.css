@@ -89,19 +89,19 @@
     bottom: -50%;
     left: -50%;
     z-index: -1;
-    @apply bg-white dark:bg-black;
+    @apply bg-black;
   }
 }
 
 @layer components {
   /* needed to override tailwind forms styles */
   select {
-    @apply w-full px-4 py-2 border border-gray-200 rounded outline-none text-primary bg-gray-1000 bg-opacity-5 hover:bg-opacity-10 focus:border-gray-1000 focus:outline-none focus:ring-0 dark:border-gray-800 dark:bg-white dark:focus:border-gray-600;
+    @apply w-full px-4 py-2 border rounded outline-none text-primary bg-opacity-5 hover:bg-opacity-10 focus:outline-none focus:ring-0 border-gray-800 bg-white focus:border-gray-600;
   }
 
   button:focus,
   a:focus {
-    @apply outline-none ring-2 ring-blue-500 ring-offset-2 ring-offset-white dark:ring-blue-500 dark:ring-offset-black;
+    @apply outline-none ring-2 ring-offset-2 ring-blue-500 ring-offset-black;
   }
 
   button:active:not(:focus-visible),
@@ -113,16 +113,16 @@
 
   input[type='text'],
   textarea {
-    @apply bg-white border border-gray-200 outline-none dark:border-gray-700 dark:bg-gray-800;
+    @apply border outline-none border-gray-700 bg-gray-800;
   }
 
   input[type='checkbox'] {
-    @apply dark:border-gray-600 dark:bg-gray-700;
+    @apply border-gray-600 bg-gray-700;
   }
 
   input:focus,
   textarea:focus {
-    @apply outline-none ring-2 ring-blue-500 ring-offset-2 ring-offset-white dark:ring-offset-black;
+    @apply outline-none ring-2 ring-blue-500 ring-offset-2 ring-offset-black;
   }
 
   .font-list-heading {
@@ -137,39 +137,39 @@
 /* Your own custom utilities */
 @layer utilities {
   .text-primary {
-    @apply text-gray-1000 dark:text-gray-100;
+    @apply text-gray-100;
   }
 
   .text-secondary {
-    @apply text-gray-700 dark:text-gray-300;
+    @apply text-gray-300;
   }
 
   .text-tertiary {
-    @apply text-gray-500 dark:text-gray-400;
+    @apply text-gray-400;
   }
 
   .text-quaternary {
-    @apply text-gray-400 dark:text-gray-500;
+    @apply text-gray-500;
   }
 
   .bg-elevated {
-    @apply bg-gray-400 bg-opacity-5 dark:bg-gray-50;
+    @apply bg-opacity-5 bg-gray-50;
   }
 
   .bg-primary {
-    @apply bg-gray-100/60 dark:bg-gray-1000/70;
+    @apply bg-gray-1000/70;
   }
 
   .highlight {
-    @apply bg-black/10  dark:bg-white/[.06];
+    @apply bg-white/[.06];
   }
 
   .button-primary-x {
-    @apply flex items-center justify-center flex-none px-4 py-2 space-x-2 text-sm font-semibold leading-none text-gray-700 transition-all bg-white border border-gray-400 rounded-md shadow-sm cursor-pointer dark:text-gray-300 hover:text-gray-1000 dark:bg-gray-900 border-opacity-30 dark:border-opacity-30 dark:border-gray-500 dark:hover:text-white hover:border-opacity-50 dark:hover:border-opacity-50 hover:shadow-sm;
+    @apply flex items-center justify-center flex-none px-4 py-2 space-x-2 text-sm font-semibold leading-none transition-all border rounded-md shadow-sm cursor-pointer text-gray-300 bg-gray-900 border-opacity-30 border-gray-500 hover:text-white hover:border-opacity-50 hover:shadow-sm;
   }
 
   .button-primary-y {
-    @apply flex items-center justify-center flex-none px-2 py-2 space-x-2 font-semibold leading-none text-gray-700 bg-white border border-gray-400 rounded-md shadow-sm cursor-pointer dark:text-gray-300 hover:text-gray-1000 dark:bg-gray-900 border-opacity-30 dark:border-opacity-30 dark:border-gray-500 dark:hover:text-white hover:border-opacity-50 dark:hover:border-opacity-50 hover:shadow-sm;
+    @apply flex items-center justify-center flex-none px-2 py-2 space-x-2 font-semibold leading-none rounded-md shadow-sm cursor-pointer text-gray-300 bg-gray-900 border-opacity-30 border-gray-500 hover:text-white hover:border-opacity-50 hover:shadow-sm;
   }
 
   .filter-none {
@@ -190,15 +190,21 @@
   }
 
   .highlight-link-hover {
-    @apply -mx-0.5 rounded-sm bg-opacity-20 px-0.5 text-gray-1000 no-underline dark:bg-opacity-100 dark:text-gray-300 md:hover:bg-yellow-400 md:hover:bg-opacity-30 md:dark:hover:bg-yellow-500 md:dark:hover:bg-opacity-100 md:dark:hover:text-gray-1000;
+    @apply -mx-0.5 rounded-sm px-0.5 no-underline bg-opacity-100 text-gray-300 md:hover:bg-yellow-500 md:hover:bg-opacity-100 md:hover:text-gray-1000;
   }
 
   .highlight-link {
-    @apply -mx-0.5 bg-opacity-20 px-0.5 text-gray-1000 dark:bg-gray-100 dark:bg-opacity-20 dark:text-gray-300 md:hover:bg-opacity-30 md:dark:hover:bg-yellow-500 md:dark:hover:bg-opacity-100 md:dark:hover:text-gray-1000;
+    @apply -mx-0.5 px-0.5 bg-gray-100 bg-opacity-20 text-gray-300 md:hover:bg-yellow-500 md:hover:bg-opacity-100 md:hover:text-gray-1000;
   }
 
   .blink {
     animation: blink-animation 1.5s steps(2, start) infinite;
     -webkit-animation: blink-animation 1.5s steps(2, start) infinite;
   }
+}
+
+/* main dots background */
+.dots {
+  background: radial-gradient(#222222 1px, transparent 0px) -19px -19px / 40px
+    40px #050505 !important;
 }

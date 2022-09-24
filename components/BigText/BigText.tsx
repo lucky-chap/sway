@@ -1,6 +1,7 @@
 // https://github.com/delbaoliveira/website/blob/main/ui/challenge/TextSlider.tsx
 import React from 'react'
 
+import { useGlitch, GlitchHandle } from 'react-powerglitch'
 import { useInterval } from 'react-use'
 
 import classNames from 'lib/classNames'
@@ -11,6 +12,8 @@ interface BigTextProps {
 
 export default function BigText({ slides }: BigTextProps) {
   const [currentSlide, setSlide] = React.useState(0)
+
+  // const glitch: GlitchHandle = useGlitch({ glitchTimeSpan: false })
 
   const totalSlides = slides.length
 
@@ -25,7 +28,7 @@ export default function BigText({ slides }: BigTextProps) {
   return (
     <div className='flex flex-col items-center text-6xl font-extrabold tracking-tight md:text-9xl'>
       <div className='flex flex-col items-center'>
-        <p className='text-2xl tracking-normal sm:text-3xl'>The ultimate</p>
+        {/* <p className='text-lg tracking-normal font-semibold sm:text-xl'>Sway</p> */}
         {slides.map((text, index) => {
           return (
             <span key={text} className='relative block text-center'>
@@ -52,12 +55,6 @@ export default function BigText({ slides }: BigTextProps) {
             </span>
           )
         })}
-        <p className='mt-4 text-2xl tracking-normal sm:text-3xl'>
-          Front-End Template.
-        </p>
-        <p className='mt-6 text-lg font-medium tracking-normal text-tertiary'>
-          Edit pages/index.tsx to get started. 🚀
-        </p>
       </div>
     </div>
   )

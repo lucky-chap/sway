@@ -1,41 +1,33 @@
+import { useRecoilState } from 'recoil'
+
 import BigText from 'components/BigText'
 import Container from 'components/Container'
+import { dialogState } from 'state'
 
 export default function Home() {
+  const [openDialog, setOpenDialog] = useRecoilState(dialogState)
   return (
     <Container>
-      <div className='flex flex-col items-center justify-center inset-0'>
+      <div className='inset-0 flex flex-col items-center justify-center'>
         <BigText slides={['Efficient.', 'Blob.', 'Creation.']} />
       </div>
       <div className=''>
-        <div className='py-24 mx-3 md:mx-0'>
-          <div className='grid gap-8 items-start justify-center'>
-            <div className='relative group'>
-              <div className='absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt'></div>
-              <button className='relative px-7 py-4 bg-black rounded-lg leading-none flex items-center divide-x divide-gray-600'>
+        <div className='mx-3 py-24 md:mx-0'>
+          <div className='grid items-start justify-center gap-8'>
+            <div className='group relative'>
+              <div className='animate-tilt absolute -inset-0.5 rounded-lg bg-gradient-to-r from-pink-600 to-purple-600 opacity-75 blur transition duration-1000 group-hover:opacity-100 group-hover:duration-200'></div>
+              <button
+                className='relative flex items-center divide-x divide-gray-600 rounded-lg bg-black px-7 py-4 leading-none'
+                onClick={() => setOpenDialog(true)}
+              >
                 <span className='flex items-center space-x-5'>
-                  {/* <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    fill='none'
-                    viewBox='0 0 24 24'
-                    stroke-width='1.5'
-                    stroke='currentColor'
-                    className='h-6 w-6 text-pink-600 -rotate-6'
-                  >
-                    <path
-                      stroke-linecap='round'
-                      stroke-linejoin='round'
-                      d='M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z'
-                    />
-                  </svg> */}
-
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
                     fill='none'
                     viewBox='0 0 24 24'
                     strokeWidth='1.5'
                     stroke='currentColor'
-                    className='h-6 w-6 text-pink-600 -rotate-6'
+                    className='h-6 w-6 -rotate-6 text-pink-600'
                   >
                     <path
                       strokeLinecap='round'
@@ -44,11 +36,11 @@ export default function Home() {
                     />
                   </svg>
 
-                  <span className='pr-6 text-gray-100 font-semibold'>
-                    Ready ?
+                  <span className='pr-6 font-semibold text-gray-100'>
+                    Ready to Sway ?
                   </span>
                 </span>
-                <span className='pl-6 text-indigo-400 group-hover:text-primary transition duration-200'>
+                <span className='group-hover:text-primary pl-6 text-indigo-400 transition duration-200'>
                   Sign in &rarr;
                 </span>
               </button>
